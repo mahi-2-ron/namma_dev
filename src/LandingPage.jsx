@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Users, 
   Code, 
-  Search, 
   Zap, 
   ChevronRight, 
   Github, 
@@ -13,7 +12,6 @@ import {
   Moon, 
   Menu, 
   X,
-  MapPin,
   Rocket,
   ArrowRight,
   TrendingUp,
@@ -37,10 +35,10 @@ const LandingPage = () => {
 
   const images = {
     hero: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&q=80&w=2000",
-    mgroad: "https://images.unsplash.com/photo-1619177302196-03098748721c?auto=format&fit=crop&q=80&w=1500",
-    tech: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=1500",
+    mgroad: "https://images.unsplash.com/photo-1640621419736-2374ed2e3073?auto=format&fit=crop&q=80&w=1500",
+    tech: "https://images.unsplash.com/photo-1580508174046-170816f65662?auto=format&fit=crop&q=80&w=1500",
     community: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&q=80&w=1500",
-    vidhana_soudha: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExITFhUXGR0aGBgYGSEdHhkdGhkeIBsbGR0YHiggHRolGxceITIiJSkrLi4uHSAzODMtNygtLisBCgoKDg0OGxAQGy0lHyUvLS0vNS0tKy0tNy8tNS0tLy0vLS0tLS0tLS0tLS0tLy0tNS0tLS0tLS0tLS0vLS0tLf/AABEIARAAugMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAABAMFBgIBB//EAEcQAAECBAMEBQcKBgECBwAAAAECEQADEiEEMUEFIlFhEzJxgbEUM0JykaHRFSNSVHOSk7LB8AYkNFNi4fFjghY1g6Kjs8L/xAAZAQACAwEAAAAAAAAAAAAAAAAAAwECBAX/xAArEQACAgEDAgQHAQEBAAAAAAAAAQIRAxIhMSJBBFFx8BMyYYGRoeHRsVL/2gAMAwEgroup/z/pm1bIYA+QySWuBZjTe9V98j/tB1iXDbJRczMHKQxlsbFySAsEObA25iL/yOX/bR90fCPU4WWC4QgHiEiCyJZE1Wlfv/Rf5Gw31eR+Gn4QfI2G+ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q9BAAj8jYb6vI/DT8IPkbDfV5H4afhD0EACPyNhvq8j8NPwg+RsN9ryPw0/CHoIgUI/I2G+ryPw0/CD5Gw31eR+Gn4Q8H2XNCfIJD/Zp+EcTNl4YEJGHw5J0oSLcerxtCko0qSq9syLk5O97gtfPSLHD4kKmKscrFtBn7zqz90BaUGiKXsXD3fDyLl/Nptbsjv5Gw31eR+Gn4Q9BAV"
+    vidhana_soudha: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=1500"
   };
 
   // Navbar Component
@@ -59,7 +57,6 @@ const LandingPage = () => {
             <span className="font-bold text-2xl tracking-tighter dark:text-white">Namma Dev</span>
           </motion.div>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-10">
             {['Features', 'Growth', 'Community', 'Identity'].map((item) => (
               <a key={item} href={`#${item.toLowerCase()}`} className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-all">
@@ -77,7 +74,6 @@ const LandingPage = () => {
             </button>
           </div>
 
-          {/* Mobile Toggle */}
           <div className="md:hidden flex items-center gap-4">
             <button onClick={toggleDarkMode} className="p-2 text-slate-600 dark:text-slate-300">
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -89,7 +85,6 @@ const LandingPage = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
@@ -115,10 +110,8 @@ const LandingPage = () => {
     </nav>
   );
 
-  // Hero Section
   const Hero = () => (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with Overlay */}
       <div 
         className="absolute inset-0 z-0 scale-105"
         style={{ 
@@ -164,12 +157,10 @@ const LandingPage = () => {
         </motion.div>
       </div>
 
-      {/* Hero Bottom Glow */}
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-slate-950 to-transparent"></div>
     </section>
   );
 
-  // Features Section
   const Features = () => {
     const features = [
       {
@@ -233,7 +224,6 @@ const LandingPage = () => {
               <img src={images.mgroad} alt="MG Road context" className="w-full h-[600px] object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent pointer-events-none"></div>
             </div>
-            {/* Floating Card */}
             <motion.div 
               animate={{ y: [0, -15, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
@@ -253,7 +243,6 @@ const LandingPage = () => {
     );
   };
 
-  // Growth Section
   const Growth = () => (
     <section id="growth" className="py-32 relative">
       <div className="absolute inset-0 h-[600px]">
@@ -288,7 +277,6 @@ const LandingPage = () => {
     </section>
   );
 
-  // Community Section
   const Community = () => (
     <section id="community" className="py-32 bg-slate-50 dark:bg-slate-900/40">
       <div className="max-w-7xl mx-auto px-4 text-center">
@@ -328,7 +316,6 @@ const LandingPage = () => {
     </section>
   );
 
-  // Identity Section
   const Identity = () => (
     <section id="identity" className="relative py-48 overflow-hidden">
       <div className="absolute inset-0">
@@ -355,7 +342,6 @@ const LandingPage = () => {
         </motion.div>
       </div>
 
-      {/* Aesthetic Accents */}
       <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/20 blur-[150px] rounded-full"></div>
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-accent/10 blur-[150px] rounded-full"></div>
     </section>
