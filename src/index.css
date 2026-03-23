@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@theme {
+  --color-primary: #2563EB;
+  --color-primary-dark: #1D4ED8;
+  --color-primary-light: #60A5FA;
+  --color-background-dark: #0F172A;
+  --color-background-light: #F8FAFC;
+  --color-accent: #22C55E;
+  --color-accent-dark: #15803D;
+  --color-accent-light: #4ADE80;
+
+  --font-inter: "Inter", "sans-serif";
+
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+
+  @keyframes glow {
+    0% { box-shadow: 0 0 5px rgba(37, 99, 235, 0.2); }
+    100% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.6); }
+  }
+}
+
+:root {
+  --primary: #2563EB;
+  --background-dark: #0F172A;
+  --accent: #22C55E;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  @apply antialiased scroll-smooth;
+}
+
+@utility btn {
+  @apply px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center gap-2;
+}
+
+@utility btn-primary {
+  @apply bg-primary text-white hover:bg-primary-dark shadow-lg shadow-primary/50;
+}
+
+@utility btn-outline {
+  @apply border-2 border-primary text-primary hover:bg-primary hover:text-white;
+}
+
+@utility glass-card {
+  @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 transition-all duration-300 hover:border-white/40;
+}
+
+.dark @utility glass-card {
+  @apply bg-slate-900/40 border-slate-700/50 hover:border-slate-600;
+}
+
+/* Custom Gradients */
+@utility bg-mesh {
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(217,100%,70%,0.1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(210,100%,60%,0.15) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(142,70%,60%,0.1) 0, transparent 50%);
+}
+
+@utility text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+}
+
+/* Glow animations */
+.glow-effect {
+  position: relative;
+}
+.glow-effect::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, var(--primary), var(--accent));
+  filter: blur(8px);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: inherit;
+}
+.glow-effect:hover::after {
+  opacity: 0.6;
+}
