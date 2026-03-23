@@ -15,7 +15,10 @@ import {
   X,
   MapPin,
   Rocket,
-  ArrowRight
+  ArrowRight,
+  TrendingUp,
+  Globe,
+  Award
 } from 'lucide-react';
 
 const LandingPage = () => {
@@ -32,36 +35,44 @@ const LandingPage = () => {
 
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
+  const images = {
+    hero: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&q=80&w=2000",
+    mgroad: "https://images.unsplash.com/photo-1619177302196-03098748721c?auto=format&fit=crop&q=80&w=1500",
+    tech: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?auto=format&fit=crop&q=80&w=1500",
+    community: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&q=80&w=1500",
+    vidhana_soudha: "data:image/jpeg;base64,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"
+  };
+
   // Navbar Component
   const Navbar = () => (
-    <nav className="fixed top-0 w-full z-50 bg-white/5 backdrop-blur-lg border-b border-white/10 dark:border-white/5">
+    <nav className="fixed top-0 w-full z-50 bg-white/5 backdrop-blur-xl border-b border-white/10 dark:border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-2"
+            className="flex items-center gap-3"
           >
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <Code className="text-white w-5 h-5" />
+            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
+              <Code className="text-white w-6 h-6" />
             </div>
-            <span className="font-bold text-xl tracking-tight dark:text-white">Namma Dev</span>
+            <span className="font-bold text-2xl tracking-tighter dark:text-white">Namma Dev</span>
           </motion.div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
-            {['Features', 'Community', 'How it works'].map((item) => (
-              <a key={item} href={`#${item.toLowerCase().replace(/ /g, '-')}`} className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+          <div className="hidden md:flex items-center gap-10">
+            {['Features', 'Growth', 'Community', 'Identity'].map((item) => (
+              <a key={item} href={`#${item.toLowerCase()}`} className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-all">
                 {item}
               </a>
             ))}
             <button 
               onClick={toggleDarkMode}
-              className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200"
+              className="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 transition-colors"
             >
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <button className="bg-primary hover:bg-primary-dark text-white px-5 py-2 rounded-full text-sm font-semibold transition-all shadow-lg shadow-primary/20">
+            <button className="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-xl shadow-primary/25 hover:scale-105 active:scale-95">
               Join Community
             </button>
           </div>
@@ -72,7 +83,7 @@ const LandingPage = () => {
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
             <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-slate-600 dark:text-slate-300">
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
@@ -82,18 +93,19 @@ const LandingPage = () => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-slate-900 border-b dark:border-white/5"
+            initial={{ opacity: 0, scaleY: 0 }}
+            animate={{ opacity: 1, scaleY: 1 }}
+            exit={{ opacity: 0, scaleY: 0 }}
+            className="md:hidden bg-white dark:bg-slate-900 border-b dark:border-white/5 origin-top"
           >
-            <div className="px-4 py-6 flex flex-col gap-4">
-              {['Features', 'Community', 'How it works'].map((item) => (
-                <a key={item} href={`#${item.toLowerCase().replace(/ /g, '-')}`} className="text-lg font-medium text-slate-600 dark:text-slate-300">
+            <div className="px-6 py-8 flex flex-col gap-6">
+              {['Features', 'Growth', 'Community', 'Identity'].map((item) => (
+                <a key={item} href={`#${item.toLowerCase()}`} className="text-xl font-bold text-slate-700 dark:text-slate-200">
                   {item}
                 </a>
               ))}
-              <button className="w-full bg-primary text-white py-3 rounded-xl font-bold">
+              <hr className="border-slate-100 dark:border-white/5" />
+              <button className="w-full bg-primary text-white py-4 rounded-2xl font-black text-lg shadow-lg">
                 Join Community
               </button>
             </div>
@@ -105,79 +117,55 @@ const LandingPage = () => {
 
   // Hero Section
   const Hero = () => (
-    <section className="relative pt-32 pb-20 overflow-hidden bg-mesh min-h-screen flex items-center">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold mb-6"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-            </span>
-            Karanataka's Tech Elite
-          </motion.div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background with Overlay */}
+      <div 
+        className="absolute inset-0 z-0 scale-105"
+        style={{ 
+          backgroundImage: `url(${images.hero})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-[2px]"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 border border-primary/30 text-primary-light text-sm font-bold mb-8 backdrop-blur-md">
+            <Rocket size={16} />
+            <span>Karnataka's premier tech circle</span>
+          </div>
           
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-5xl md:text-7xl font-extrabold tracking-tight dark:text-white mb-6"
-          >
-            Namma <span className="text-primary italic">Dev</span>
-          </motion.h1>
+          <h1 className="text-6xl md:text-8xl font-black tracking-tight text-white mb-8">
+            Namma <span className="text-primary drop-shadow-[0_0_15px_rgba(37,99,235,0.5)]">Dev</span>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="text-xl md:text-2xl font-semibold text-slate-600 dark:text-slate-400 mb-4"
-          >
+          <p className="text-2xl md:text-3xl font-bold text-slate-200 mb-6 drop-shadow-md">
             Where Karnataka Engineers Unite.
-          </motion.p>
+          </p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="max-w-2xl mx-auto text-lg text-slate-500 dark:text-slate-400 mb-10"
-          >
+          <p className="max-w-2xl mx-auto text-lg text-slate-300 mb-12 leading-relaxed">
             Connect with engineers across Karnataka, showcase projects, and grow together in India's most vibrant tech ecosystem.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="flex flex-wrap justify-center gap-4"
-          >
-            <button className="btn-primary px-8 py-4 rounded-full font-bold flex items-center gap-2 shadow-xl shadow-primary/30 group">
-              Join Community <ChevronRight className="group-hover:translate-x-1 transition-transform" />
+          <div className="flex flex-wrap justify-center gap-6">
+            <button className="btn px-10 py-5 bg-primary text-white rounded-full font-black text-lg flex items-center gap-3 shadow-2xl shadow-primary/40 hover:bg-primary-dark group transition-all">
+              Join Community <ArrowRight className="group-hover:translate-x-2 transition-transform" />
             </button>
-            <button className="bg-white dark:bg-slate-800 border-2 dark:border-slate-700 px-8 py-4 rounded-full font-bold transition-all text-slate-900 dark:text-white hover:border-primary">
+            <button className="btn px-10 py-5 bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md rounded-full font-black text-lg transition-all">
               Explore
             </button>
-          </motion.div>
-        </div>
-
-        {/* Floating elements animation */}
-        <motion.div 
-          animate={{ y: [0, -20, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="hidden lg:block absolute -right-20 top-20 opacity-20"
-        >
-          <div className="w-64 h-64 rounded-full bg-primary blur-[100px]"></div>
-        </motion.div>
-        <motion.div 
-          animate={{ y: [0, 20, 0] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-          className="hidden lg:block absolute -left-20 bottom-20 opacity-20"
-        >
-          <div className="w-64 h-64 rounded-full bg-accent blur-[100px]"></div>
+          </div>
         </motion.div>
       </div>
+
+      {/* Hero Bottom Glow */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-slate-950 to-transparent"></div>
     </section>
   );
 
@@ -186,202 +174,244 @@ const LandingPage = () => {
     const features = [
       {
         icon: Users,
-        title: "Connect",
-        desc: "Connect with local developers and find mentors from top tech companies in Karnataka.",
+        title: "Local Connections",
+        desc: "Find mentors and peers in your neighborhood, from Hebbal to Hosur road.",
         color: "blue"
       },
       {
-        icon: Code,
-        title: "Showcase",
-        desc: "Create a portfolio that matters. Showcase your local-to-global projects.",
+        icon: TrendingUp,
+        title: "Career Growth",
+        desc: "Access exclusive opportunities in the hottest startups and tech giants.",
         color: "green"
       },
       {
-        icon: Search,
-        title: "Discover",
-        desc: "Discover internships, hackathons, and local meetups happening in your neighborhood.",
+        icon: Award,
+        title: "Showcase Built",
+        desc: "Get recognition for your local innovations on a global stage.",
         color: "blue"
       },
       {
-        icon: Zap,
-        title: "Communities",
-        desc: "Join specialized tech communities covering AI/ML, Web3, Mobile, and more.",
+        icon: Globe,
+        title: "Global Reach",
+        desc: "Connect Karnataka's talent with opportunities around the world.",
         color: "green"
       }
     ];
 
     return (
-      <section id="features" className="py-24 bg-white dark:bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold dark:text-white mb-4">Empowering the Silicon State</h2>
-            <p className="text-slate-500 dark:text-slate-400">Everything you need to level up your engineering career in Karnataka.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, idx) => (
-              <motion.div
-                key={idx}
-                whileHover={{ y: -10 }}
-                className="glass-card flex flex-col gap-4 group"
-              >
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all`}>
-                  <feature.icon size={24} />
-                </div>
-                <h3 className="text-xl font-bold dark:text-white">{feature.title}</h3>
-                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{feature.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  };
-
-  // Community Section
-  const Community = () => {
-    const locations = ["Bengaluru", "Mysuru", "Hubballi", "Mangaluru", "Belagavi", "Kalaburagi"];
-    
-    return (
-      <section id="community" className="py-24 relative overflow-hidden bg-slate-50 dark:bg-slate-900/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2">
-              <h2 className="text-4xl font-bold dark:text-white mb-6">Home-grown Talent, <span className="text-primary italic">Global Impact</span></h2>
-              <p className="text-lg text-slate-500 dark:text-slate-400 mb-8 leading-relaxed">
-                Namma Dev isn't just a platform; it's a movement. We bring together engineers from Davanagere to Bengaluru, Belagavi to Mangaluru.
+      <section id="features" className="py-32 bg-white dark:bg-slate-950 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-20 items-center">
+          <div className="lg:w-1/2">
+            <div className="sticky top-32">
+              <h2 className="text-5xl font-black dark:text-white mb-8 leading-tight">
+                Designed for the <br />
+                <span className="text-primary">Next Generation</span>
+              </h2>
+              <p className="text-xl text-slate-500 dark:text-slate-400 mb-12 leading-relaxed">
+                Elevating the tech culture in Karnataka by bridging the gap between talent and opportunity.
               </p>
-              <div className="flex flex-wrap gap-2 mb-8">
-                {locations.map(loc => (
-                  <span key={loc} className="flex items-center gap-1 bg-white dark:bg-slate-800 px-4 py-2 rounded-full text-sm font-medium dark:text-slate-300 border border-slate-200 dark:border-slate-700 shadow-sm">
-                    <MapPin size={14} className="text-primary" /> {loc}
-                  </span>
+              <div className="grid grid-cols-2 gap-6">
+                {features.map((f, i) => (
+                  <motion.div 
+                    key={i}
+                    whileHover={{ y: -5 }}
+                    className="p-6 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-white/5 group transition-all"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                      <f.icon size={24} />
+                    </div>
+                    <h3 className="font-bold dark:text-white mb-2">{f.title}</h3>
+                    <p className="text-sm text-slate-500 dark:text-slate-500">{f.desc}</p>
+                  </motion.div>
                 ))}
               </div>
-              <button className="flex items-center gap-2 font-bold text-primary group">
-                See our global impact <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
-              </button>
-            </div>
-            
-            <div className="lg:w-1/2 grid grid-cols-2 gap-4">
-              {[1, 2, 3, 4].map((i) => (
-                <motion.div 
-                  key={i}
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-white dark:bg-slate-800 p-4 rounded-3xl shadow-xl dark:shadow-none border border-slate-100 dark:border-slate-700"
-                >
-                  <div className="h-24 bg-slate-100 dark:bg-slate-700 rounded-2xl mb-4 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20"></div>
-                  </div>
-                  <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-600 -mt-9 ml-2 relative z-10 border-4 border-white dark:border-slate-800"></div>
-                  <div className="mt-2">
-                    <div className="h-4 w-24 bg-slate-200 dark:bg-slate-700 rounded mb-2"></div>
-                    <div className="h-3 w-16 bg-slate-100 dark:bg-slate-600 rounded"></div>
-                  </div>
-                </motion.div>
-              ))}
             </div>
           </div>
-        </div>
-      </section>
-    );
-  };
-
-  // How It Works
-  const HowItWorks = () => {
-    const steps = [
-      {
-        step: "01",
-        title: "Create profile",
-        desc: "Build your engineering profile. List your skills, projects, and what you’re looking for."
-      },
-      {
-        step: "02",
-        title: "Connect with engineers",
-        desc: "Network with high-impact engineers and developers in your city or stack."
-      },
-      {
-        step: "03",
-        title: "Build & grow together",
-        desc: "Find collaborators for your side projects or find your next career step."
-      }
-    ];
-
-    return (
-      <section id="how-it-works" className="py-24 bg-white dark:bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold dark:text-white mb-4">How it works</h2>
-            <p className="text-slate-500 dark:text-slate-400">Three steps to join the circle.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
-             {/* Connector line for desktop */}
-            <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-100 dark:bg-slate-800 -z-10 transform -translate-y-1/2"></div>
-            
-            {steps.map((step, idx) => (
-              <div key={idx} className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-white font-black text-2xl shadow-xl shadow-primary/30 mb-8 relative">
-                   <div className="absolute -inset-2 bg-primary/20 blur-xl rounded-full -z-10"></div>
-                  {step.step}
-                </div>
-                <h3 className="text-2xl font-bold dark:text-white mb-4">{step.title}</h3>
-                <p className="text-slate-500 dark:text-slate-400 leading-relaxed">{step.desc}</p>
+          
+          <div className="lg:w-1/2 relative">
+            <div className="rounded-[3rem] overflow-hidden shadow-2xl shadow-primary/20 border-8 border-white dark:border-slate-800 rotate-2">
+              <img src={images.mgroad} alt="MG Road context" className="w-full h-[600px] object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent pointer-events-none"></div>
+            </div>
+            {/* Floating Card */}
+            <motion.div 
+              animate={{ y: [0, -15, 0] }}
+              transition={{ duration: 4, repeat: Infinity }}
+              className="absolute -bottom-10 -left-10 p-8 glass-card max-w-xs shadow-2xl"
+            >
+              <Zap className="text-yellow-400 mb-4" />
+              <p className="font-bold dark:text-white text-lg">MG Road Community Meetup</p>
+              <p className="text-sm text-slate-500 mb-4">Every Sunday, 4:00 PM</p>
+              <div className="flex -space-x-2">
+                {[1, 2, 3, 4].map(i => <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-200"></div>)}
+                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-[10px] text-white font-bold">+2k</div>
               </div>
-            ))}
+            </motion.div>
           </div>
         </div>
       </section>
     );
   };
+
+  // Growth Section
+  const Growth = () => (
+    <section id="growth" className="py-32 relative">
+      <div className="absolute inset-0 h-[600px]">
+        <img src={images.tech} alt="Electronic City" className="w-full h-full object-cover opacity-20 grayscale" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white dark:from-slate-950 via-transparent to-white dark:to-slate-950"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
+        <div className="bg-primary/5 dark:bg-primary/10 border border-primary/20 rounded-[4rem] p-12 md:p-24 backdrop-blur-xl text-center">
+          <h2 className="text-4xl md:text-6xl font-black dark:text-white mb-8">Built in the Silicon Valley of India</h2>
+          <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 max-w-3xl mx-auto leading-relaxed mb-12">
+            Namma Dev is born and bred in Bengaluru. We understand the pulse of the tech scene better than anyone else.
+          </p>
+          <div className="flex justify-center gap-12 flex-wrap">
+            <div>
+              <p className="text-5xl font-black text-primary mb-2">50k+</p>
+              <p className="text-slate-500 font-bold">Engineers</p>
+            </div>
+            <div className="w-px h-16 bg-slate-200 dark:bg-white/10 hidden md:block"></div>
+            <div>
+              <p className="text-5xl font-black text-accent mb-2">500+</p>
+              <p className="text-slate-500 font-bold">Startups</p>
+            </div>
+            <div className="w-px h-16 bg-slate-200 dark:bg-white/10 hidden md:block"></div>
+            <div>
+              <p className="text-5xl font-black text-primary mb-2">20+</p>
+              <p className="text-slate-500 font-bold">Local Hubs</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+
+  // Community Section
+  const Community = () => (
+    <section id="community" className="py-32 bg-slate-50 dark:bg-slate-900/40">
+      <div className="max-w-7xl mx-auto px-4 text-center">
+        <h2 className="text-4xl md:text-5xl font-black dark:text-white mb-4">Find your tribe. Build together.</h2>
+        <p className="text-lg text-slate-500 mb-20">Join the communities that match your ambition.</p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {[
+            { tag: "AI/ML", color: "from-blue-500 to-indigo-500", desc: "Building the future of intelligence in BLR." },
+            { tag: "Web3", color: "from-purple-500 to-pink-500", desc: "Decentralizing the web with local talent." },
+            { tag: "Open Source", color: "from-green-500 to-emerald-500", desc: "Contributing to the global commons." }
+          ].map((c, i) => (
+            <motion.div 
+              key={i}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-xl border border-slate-100 dark:border-white/5 group"
+            >
+              <div className={`h-4 bg-gradient-to-r ${c.color}`}></div>
+              <div className="p-8">
+                <div className="w-16 h-16 rounded-2xl bg-slate-100 dark:bg-slate-700/50 mb-6 mx-auto flex items-center justify-center text-slate-500 group-hover:bg-primary/20 transition-all">
+                  <Globe />
+                </div>
+                <h3 className="text-2xl font-bold dark:text-white mb-4">{c.tag}</h3>
+                <p className="text-slate-500 dark:text-slate-400 mb-8">{c.desc}</p>
+                <button className="w-full py-4 border-2 border-primary/20 hover:border-primary text-primary font-bold rounded-2xl transition-all">
+                  View Community
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-20">
+          <img src={images.community} alt="Community meetup" className="w-full h-[500px] object-cover rounded-[3rem] shadow-2xl" />
+        </div>
+      </div>
+    </section>
+  );
+
+  // Identity Section
+  const Identity = () => (
+    <section id="identity" className="relative py-48 overflow-hidden">
+      <div className="absolute inset-0">
+        <img src={images.vidhana_soudha} alt="Vidhana Soudha" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-slate-950/80"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
+        <motion.div
+           initial={{ opacity: 0, scale: 0.9 }}
+           whileInView={{ opacity: 1, scale: 1 }}
+           className="p-12 md:p-24"
+        >
+          <h2 className="text-5xl md:text-7xl font-black text-white mb-8 drop-shadow-2xl">
+            Rooted in Karnataka.<br />
+            <span className="text-accent italic">Built for Engineers.</span>
+          </h2>
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-12">
+            An ecosystem that honors its heritage while building the global tech of tomorrow. Join thousands of developers who call Namma Dev home.
+          </p>
+          <button className="bg-primary hover:bg-primary-dark text-white px-12 py-6 rounded-full font-black text-2xl shadow-2xl group transition-all transform hover:scale-105">
+            Claim your profile <ChevronRight className="inline-block ml-2 group-hover:translate-x-2 transition-all" />
+          </button>
+        </motion.div>
+      </div>
+
+      {/* Aesthetic Accents */}
+      <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/20 blur-[150px] rounded-full"></div>
+      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-accent/10 blur-[150px] rounded-full"></div>
+    </section>
+  );
 
   const Footer = () => (
-    <footer className="bg-slate-50 dark:bg-slate-900/80 border-t dark:border-white/5 pt-20 pb-10">
+    <footer className="bg-white dark:bg-slate-950 border-t dark:border-white/5 pt-32 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white">
-                <Code />
+        <div className="flex flex-col md:flex-row justify-between items-start gap-16 mb-24">
+          <div className="max-w-md">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center text-white shadow-xl shadow-primary/30">
+                <Code size={28} />
               </div>
-              <span className="font-bold text-2xl tracking-tight dark:text-white">Namma Dev</span>
+              <span className="font-black text-3xl tracking-tighter dark:text-white">Namma Dev</span>
             </div>
-            <p className="text-slate-500 dark:text-slate-400 text-lg mb-8 max-w-sm">
-              Namma Dev is the community platform built to unite and empower the engineering ecosystem of Karnataka.
+            <p className="text-xl text-slate-500 dark:text-slate-400 mb-10 leading-relaxed">
+              Where Karnataka Engineers Unite. The definitive community for the silicon state of India.
             </p>
             <div className="flex gap-4">
               {[Twitter, Github, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" className="w-12 h-12 rounded-full border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:border-primary hover:text-primary transition-all">
-                  <Icon size={20} />
+                <a key={i} href="#" className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-white/10 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:border-primary hover:text-primary transition-all hover:shadow-lg">
+                  <Icon size={24} />
                 </a>
               ))}
             </div>
           </div>
-          
-          <div>
-            <h4 className="font-bold text-slate-900 dark:text-white mb-6">Explore</h4>
-            <ul className="space-y-4">
-              {['Home', 'Features', 'Community', 'Projects'].map(item => (
-                <li key={item}><a href="#" className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">{item}</a></li>
-              ))}
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-bold text-slate-900 dark:text-white mb-6">Legal</h4>
-            <ul className="space-y-4">
-              {['Terms', 'Privacy', 'Guidelines'].map(item => (
-                <li key={item}><a href="#" className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">{item}</a></li>
-              ))}
-            </ul>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-16">
+             <div>
+              <h4 className="font-black text-lg dark:text-white mb-8">Platform</h4>
+              <ul className="space-y-4">
+                {['Home', 'Features', 'Community', 'Projects'].map(item => (
+                  <li key={item}><a href="#" className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors font-medium">{item}</a></li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-black text-lg dark:text-white mb-8">Hubs</h4>
+              <ul className="space-y-4">
+                {['Bengaluru', 'Mysuru', 'Hubballi', 'Mangaluru'].map(item => (
+                  <li key={item}><a href="#" className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors font-medium">{item}</a></li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="border-t dark:border-white/5 pt-10 text-center">
-          <p className="text-slate-500 dark:text-slate-500 text-sm italic">
-            &copy; {new Date().getFullYear()} Namma Dev. Where Karnataka Engineers Unite. 
-            <span className="ml-2 not-italic">Made by Engineers in BLR 🚀</span>
+        <div className="pt-16 border-t dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+           <p className="text-slate-500 dark:text-slate-500 font-bold text-center md:text-left">
+            &copy; {new Date().getFullYear()} Namma Dev. <span className="text-slate-300 dark:text-slate-800 mx-4">|</span> Made by Engineers in BLR 🚀
           </p>
+          <div className="flex gap-8 text-sm font-bold text-slate-500">
+            <a href="#" className="hover:text-primary transition-colors">Privacy</a>
+            <a href="#" className="hover:text-primary transition-colors">Terms</a>
+          </div>
         </div>
       </div>
     </footer>
@@ -392,28 +422,9 @@ const LandingPage = () => {
       <Navbar />
       <Hero />
       <Features />
+      <Growth />
       <Community />
-      <HowItWorks />
-      
-      {/* Dynamic CTA */}
-      <section className="py-20">
-        <div className="max-w-5xl mx-auto px-4">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="bg-primary rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 p-8 opacity-10">
-              <Rocket size={160} />
-            </div>
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-8 relative z-10">Banni, Karnataka's Tech Future awaits.</h2>
-            <button className="bg-white text-primary px-10 py-5 rounded-full font-bold text-xl hover:bg-slate-50 transition-all shadow-2xl relative z-10 group">
-              Get Started for Free <ArrowRight className="inline-block ml-2 group-hover:translate-x-1" />
-            </button>
-          </motion.div>
-        </div>
-      </section>
-
+      <Identity />
       <Footer />
     </div>
   );
