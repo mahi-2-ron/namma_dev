@@ -22,6 +22,10 @@ import {
 const LandingPage = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+  const [email, setEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+  const [counters, setCounters] = useState({ engineers: 0, startups: 0, hubs: 0 });
 
   useEffect(() => {
     if (isDarkMode) {
@@ -31,7 +35,68 @@ const LandingPage = () => {
     }
   }, [isDarkMode]);
 
+  // Intersection Observer for active section tracking
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-10% 0px -80% 0px',
+      threshold: 0
+    };
+
+    const handleIntersect = (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+    const sections = ['features', 'growth', 'community', 'identity'];
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Counter animation logic
+  useEffect(() => {
+    const targetValues = { engineers: 50, startups: 500, hubs: 20 };
+    const duration = 2000;
+    const frameRate = 1000 / 60;
+    const totalFrames = Math.round(duration / frameRate);
+    
+    let frame = 0;
+    const timer = setInterval(() => {
+      frame++;
+      const progress = frame / totalFrames;
+      
+      setCounters({
+        engineers: Math.floor(targetValues.engineers * progress),
+        startups: Math.floor(targetValues.startups * progress),
+        hubs: Math.floor(targetValues.hubs * progress)
+      });
+
+      if (frame === totalFrames) clearInterval(timer);
+    }, frameRate);
+
+    return () => clearInterval(timer);
+  }, [activeSection === 'growth']); // Restart when growth section is active
+
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
+
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (email) {
+      setSubscribed(true);
+      setTimeout(() => {
+        setSubscribed(false);
+        setEmail('');
+      }, 3000);
+    }
+  };
 
   const images = {
     hero: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&q=80&w=2000",
@@ -59,7 +124,15 @@ const LandingPage = () => {
 
           <div className="hidden md:flex items-center gap-10">
             {['Features', 'Growth', 'Community', 'Identity'].map((item) => (
-              <a key={item} href={`#${item.toLowerCase()}`} className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-all">
+              <a 
+                key={item} 
+                href={`#${item.toLowerCase()}`} 
+                className={`text-sm font-semibold transition-all ${
+                  activeSection === item.toLowerCase() 
+                    ? 'text-primary scale-110' 
+                    : 'text-slate-600 dark:text-slate-300 hover:text-primary'
+                }`}
+              >
                 {item}
               </a>
             ))}
@@ -258,17 +331,17 @@ const LandingPage = () => {
           </p>
           <div className="flex justify-center gap-12 flex-wrap">
             <div>
-              <p className="text-5xl font-black text-primary mb-2">50k+</p>
+              <p className="text-5xl font-black text-primary mb-2">{counters.engineers}k+</p>
               <p className="text-slate-500 font-bold">Engineers</p>
             </div>
             <div className="w-px h-16 bg-slate-200 dark:bg-white/10 hidden md:block"></div>
             <div>
-              <p className="text-5xl font-black text-accent mb-2">500+</p>
+              <p className="text-5xl font-black text-accent mb-2">{counters.startups}+</p>
               <p className="text-slate-500 font-bold">Startups</p>
             </div>
             <div className="w-px h-16 bg-slate-200 dark:bg-white/10 hidden md:block"></div>
             <div>
-              <p className="text-5xl font-black text-primary mb-2">20+</p>
+              <p className="text-5xl font-black text-primary mb-2">{counters.hubs}+</p>
               <p className="text-slate-500 font-bold">Local Hubs</p>
             </div>
           </div>
@@ -361,6 +434,29 @@ const LandingPage = () => {
             <p className="text-xl text-slate-500 dark:text-slate-400 mb-10 leading-relaxed">
               Where Karnataka Engineers Unite. The definitive community for the silicon state of India.
             </p>
+            
+            <form onSubmit={handleSubscribe} className="relative mb-8">
+              <input 
+                type="email" 
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Stay updated via email"
+                className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-white/10 px-6 py-4 rounded-2xl focus:outline-none focus:border-primary transition-all pr-32 font-bold dark:text-white"
+                required
+              />
+              <button 
+                type="submit"
+                disabled={subscribed}
+                className={`absolute right-2 top-2 bottom-2 px-6 rounded-xl font-black text-sm transition-all ${
+                  subscribed 
+                    ? 'bg-accent text-white scale-95' 
+                    : 'bg-primary text-white hover:bg-primary-dark cursor-pointer'
+                }`}
+              >
+                {subscribed ? 'Subscribed!' : 'Subscribe'}
+              </button>
+            </form>
+
             <div className="flex gap-4">
               {[Twitter, Github, Linkedin].map((Icon, i) => (
                 <a key={i} href="#" className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-white/10 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:border-primary hover:text-primary transition-all hover:shadow-lg">
