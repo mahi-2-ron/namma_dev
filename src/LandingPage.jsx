@@ -87,6 +87,14 @@ const LandingPage = () => {
 
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
   const handleSubscribe = (e) => {
     e.preventDefault();
     if (email) {
@@ -96,6 +104,12 @@ const LandingPage = () => {
         setEmail('');
       }, 3000);
     }
+  };
+
+  const handleAction = (action) => {
+    console.log(`${action} triggered`);
+    // Placeholder for future actions like opening a signup modal
+    scrollToSection('community');
   };
 
   const images = {
@@ -124,17 +138,17 @@ const LandingPage = () => {
 
           <div className="hidden md:flex items-center gap-10">
             {['Features', 'Growth', 'Community', 'Identity'].map((item) => (
-              <a 
+              <button 
                 key={item} 
-                href={`#${item.toLowerCase()}`} 
+                onClick={() => scrollToSection(item.toLowerCase())}
                 className={`text-sm font-semibold transition-all ${
                   activeSection === item.toLowerCase() 
                     ? 'text-primary scale-110' 
-                    : 'text-slate-600 dark:text-slate-300 hover:text-primary'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-primary cursor-pointer'
                 }`}
               >
                 {item}
-              </a>
+              </button>
             ))}
             <button 
               onClick={toggleDarkMode}
@@ -142,7 +156,10 @@ const LandingPage = () => {
             >
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <button className="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-xl shadow-primary/25 hover:scale-105 active:scale-95">
+            <button 
+              onClick={() => handleAction('Join Community')}
+              className="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all shadow-xl shadow-primary/25 hover:scale-105 active:scale-95"
+            >
               Join Community
             </button>
           </div>
@@ -168,12 +185,19 @@ const LandingPage = () => {
           >
             <div className="px-6 py-8 flex flex-col gap-6">
               {['Features', 'Growth', 'Community', 'Identity'].map((item) => (
-                <a key={item} href={`#${item.toLowerCase()}`} className="text-xl font-bold text-slate-700 dark:text-slate-200">
+                <button 
+                  key={item} 
+                  onClick={() => scrollToSection(item.toLowerCase())} 
+                  className="text-xl font-bold text-slate-700 dark:text-slate-200 text-left"
+                >
                   {item}
-                </a>
+                </button>
               ))}
               <hr className="border-slate-100 dark:border-white/5" />
-              <button className="w-full bg-primary text-white py-4 rounded-2xl font-black text-lg shadow-lg">
+              <button 
+                onClick={() => handleAction('Join Community Mobile')}
+                className="w-full bg-primary text-white py-4 rounded-2xl font-black text-lg shadow-lg"
+              >
                 Join Community
               </button>
             </div>
@@ -220,10 +244,16 @@ const LandingPage = () => {
           </p>
 
           <div className="flex flex-wrap justify-center gap-6">
-            <button className="btn px-10 py-5 bg-primary text-white rounded-full font-black text-lg flex items-center gap-3 shadow-2xl shadow-primary/40 hover:bg-primary-dark group transition-all">
+            <button 
+              onClick={() => handleAction('Hero Join Community')}
+              className="btn px-10 py-5 bg-gradient-to-r from-primary to-secondary text-white rounded-full font-black text-lg flex items-center gap-3 shadow-2xl shadow-primary/40 hover:scale-105 group transition-all"
+            >
               Join Community <ArrowRight className="group-hover:translate-x-2 transition-transform" />
             </button>
-            <button className="btn px-10 py-5 bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md rounded-full font-black text-lg transition-all">
+            <button 
+              onClick={() => scrollToSection('features')}
+              className="btn px-10 py-5 bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md rounded-full font-black text-lg transition-all"
+            >
               Explore
             </button>
           </div>
@@ -374,7 +404,10 @@ const LandingPage = () => {
                 </div>
                 <h3 className="text-2xl font-bold dark:text-white mb-4">{c.tag}</h3>
                 <p className="text-slate-500 dark:text-slate-400 mb-8">{c.desc}</p>
-                <button className="w-full py-4 border-2 border-primary/20 hover:border-primary text-primary font-bold rounded-2xl transition-all">
+                <button 
+                  onClick={() => handleAction(`View ${c.tag} Community`)}
+                  className="w-full py-4 border-2 border-primary/20 hover:border-primary text-primary font-bold rounded-2xl transition-all"
+                >
                   View Community
                 </button>
               </div>
@@ -409,7 +442,10 @@ const LandingPage = () => {
           <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-12">
             An ecosystem that honors its heritage while building the global tech of tomorrow. Join thousands of developers who call Namma Dev home.
           </p>
-          <button className="bg-primary hover:bg-primary-dark text-white px-12 py-6 rounded-full font-black text-2xl shadow-2xl group transition-all transform hover:scale-105">
+          <button 
+            onClick={() => handleAction('Claim Profile')}
+            className="bg-gradient-to-r from-accent to-primary hover:from-accent-dark hover:to-primary-dark text-white px-12 py-6 rounded-full font-black text-2xl shadow-2xl group transition-all transform hover:scale-105"
+          >
             Claim your profile <ChevronRight className="inline-block ml-2 group-hover:translate-x-2 transition-all" />
           </button>
         </motion.div>
@@ -470,8 +506,15 @@ const LandingPage = () => {
              <div>
               <h4 className="font-black text-lg dark:text-white mb-8">Platform</h4>
               <ul className="space-y-4">
-                {['Home', 'Features', 'Community', 'Projects'].map(item => (
-                  <li key={item}><a href="#" className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors font-medium">{item}</a></li>
+                {['Home', 'Features', 'Community', 'Identity'].map(item => (
+                  <li key={item}>
+                    <button 
+                      onClick={() => scrollToSection(item.toLowerCase())}
+                      className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors font-bold"
+                    >
+                      {item}
+                    </button>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -479,7 +522,14 @@ const LandingPage = () => {
               <h4 className="font-black text-lg dark:text-white mb-8">Hubs</h4>
               <ul className="space-y-4">
                 {['Bengaluru', 'Mysuru', 'Hubballi', 'Mangaluru'].map(item => (
-                  <li key={item}><a href="#" className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors font-medium">{item}</a></li>
+                  <li key={item}>
+                    <button 
+                      onClick={() => handleAction(`City: ${item}`)}
+                      className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors font-bold"
+                    >
+                      {item}
+                    </button>
+                  </li>
                 ))}
               </ul>
             </div>
