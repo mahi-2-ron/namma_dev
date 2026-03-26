@@ -423,28 +423,28 @@ const LandingPage = () => {
   );
 
   const Identity = () => (
-    <section id="identity" className="relative py-48 overflow-hidden">
+    <section id="identity" className="relative py-24 overflow-hidden">
       <div className="absolute inset-0">
         <img src={images.vidhana_soudha} alt="Vidhana Soudha" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-slate-950/80"></div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
+      <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
         <motion.div
            initial={{ opacity: 0, scale: 0.9 }}
            whileInView={{ opacity: 1, scale: 1 }}
-           className="p-12 md:p-24"
+           className="p-6 md:p-10"
         >
-          <h2 className="text-5xl md:text-7xl font-black text-white mb-8 drop-shadow-2xl">
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-6 drop-shadow-2xl">
             Rooted in Karnataka.<br />
             <span className="text-accent italic">Built for Engineers.</span>
           </h2>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-12">
+          <p className="text-lg text-slate-300 max-w-xl mx-auto leading-relaxed mb-8">
             An ecosystem that honors its heritage while building the global tech of tomorrow. Join thousands of developers who call Namma Dev home.
           </p>
           <button 
             onClick={() => handleAction('Claim Profile')}
-            className="bg-gradient-to-r from-accent to-primary hover:from-accent-dark hover:to-primary-dark text-white px-12 py-6 rounded-full font-black text-2xl shadow-2xl group transition-all transform hover:scale-105"
+            className="bg-gradient-to-r from-accent to-primary hover:from-accent-dark hover:to-primary-dark text-white px-8 py-4 rounded-full font-black text-lg shadow-2xl group transition-all transform hover:scale-105"
           >
             Claim your profile <ChevronRight className="inline-block ml-2 group-hover:translate-x-2 transition-all" />
           </button>
