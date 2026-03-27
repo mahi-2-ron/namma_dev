@@ -18,6 +18,7 @@ import {
   Globe,
   Award
 } from 'lucide-react';
+import logo from './assets/logo.png';
 
 const Navbar = ({ isDarkMode, activeSection, toggleDarkMode, isMenuOpen, setIsMenuOpen, scrollToSection, handleAction }) => (
   <nav className="fixed top-0 w-full z-50 bg-white/5 backdrop-blur-xl border-b border-white/10 dark:border-white/5">
@@ -28,8 +29,8 @@ const Navbar = ({ isDarkMode, activeSection, toggleDarkMode, isMenuOpen, setIsMe
           animate={{ opacity: 1, x: 0 }}
           className="flex items-center gap-3"
         >
-          <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
-            <Code className="text-white w-6 h-6" />
+          <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-primary/20">
+            <img src={logo} alt="Namma Dev Logo" className="w-full h-full object-cover" />
           </div>
           <span className="font-bold text-2xl tracking-tighter dark:text-white">Namma Dev</span>
         </motion.div>
@@ -340,9 +341,9 @@ const Footer = ({ email, setEmail, subscribed, handleSubscribe, scrollToSection,
       <div className="flex flex-col md:flex-row justify-between items-start gap-16 mb-24">
         <div className="max-w-md">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center text-white shadow-xl shadow-primary/30">
-              <Code size={28} />
-            </div>
+            <div className="w-12 h-12 rounded-2xl overflow-hidden shadow-xl shadow-primary/30">
+                <img src={logo} alt="Namma Dev Logo" className="w-full h-full object-cover" />
+              </div>
             <span className="font-black text-3xl tracking-tighter dark:text-white">Namma Dev</span>
           </div>
           <p className="text-xl text-slate-500 dark:text-slate-400 mb-10 leading-relaxed">
