@@ -237,21 +237,21 @@ const Events = () => {
       date: "April 15, 2026", 
       location: "Electronic City, BLR", 
       type: "Conference",
-      img: "https://images.unsplash.com/photo-1540575861501-7ad060e39fe1?auto=format&fit=crop&q=80&w=800"
+      img: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&q=80&w=800"
     },
     { 
       title: "Mysuru AI Workshop", 
       date: "May 2, 2026", 
       location: "Infosys Campus, Mysuru", 
       type: "Workshop",
-      img: "https://images.unsplash.com/photo-1591115765373-520b7a217144?auto=format&fit=crop&q=80&w=800"
+      img: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800"
     },
     { 
       title: "Hubballi Startup Meet", 
       date: "May 22, 2026", 
       location: "KLE Tech, Hubballi", 
       type: "Networking",
-      img: "https://images.unsplash.com/photo-1511578319446-38bd2c74499f?auto=format&fit=crop&q=80&w=800"
+      img: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80&w=800"
     }
   ];
 
@@ -659,7 +659,7 @@ const LandingPage = () => {
 
   const images = {
     hero: "https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&q=80&w=2000",
-    mgroad: "https://images.unsplash.com/photo-1640621419736-2374ed2e3073?auto=format&fit=crop&q=80&w=1500",
+    mgroad: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1500",
     tech: "https://images.unsplash.com/photo-1580508174046-170816f65662?auto=format&fit=crop&q=80&w=1500",
     community: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&q=80&w=1500",
     vidhana_soudha: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=1500"
