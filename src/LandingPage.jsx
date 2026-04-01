@@ -16,7 +16,12 @@ import {
   ArrowRight,
   TrendingUp,
   Globe,
-  Award
+  Award,
+  Calendar,
+  MapPin,
+  MessageSquare,
+  Star,
+  ExternalLink
 } from 'lucide-react';
 import logo from './assets/logo.png';
 
@@ -36,7 +41,7 @@ const Navbar = ({ isDarkMode, activeSection, toggleDarkMode, isMenuOpen, setIsMe
         </motion.div>
 
         <div className="hidden md:flex items-center gap-10">
-          {['Features', 'Growth', 'Community', 'Identity'].map((item) => (
+          {['Features', 'Events', 'Growth', 'Community', 'Testimonials'].map((item) => (
             <button 
               key={item} 
               onClick={() => scrollToSection(item.toLowerCase())}
@@ -83,7 +88,7 @@ const Navbar = ({ isDarkMode, activeSection, toggleDarkMode, isMenuOpen, setIsMe
           className="md:hidden bg-white dark:bg-slate-900 border-b dark:border-white/5 origin-top"
         >
           <div className="px-6 py-8 flex flex-col gap-6">
-            {['Features', 'Growth', 'Community', 'Identity'].map((item) => (
+            {['Features', 'Events', 'Growth', 'Community', 'Testimonials'].map((item) => (
               <button 
                 key={item} 
                 onClick={() => scrollToSection(item.toLowerCase())} 
@@ -225,6 +230,80 @@ const Features = ({ images }) => {
   );
 };
 
+const Events = () => {
+  const events = [
+    { 
+      title: "Bengaluru Dev Summit", 
+      date: "April 15, 2026", 
+      location: "Electronic City, BLR", 
+      type: "Conference",
+      img: "https://images.unsplash.com/photo-1540575861501-7ad060e39fe1?auto=format&fit=crop&q=80&w=800"
+    },
+    { 
+      title: "Mysuru AI Workshop", 
+      date: "May 2, 2026", 
+      location: "Infosys Campus, Mysuru", 
+      type: "Workshop",
+      img: "https://images.unsplash.com/photo-1591115765373-520b7a217144?auto=format&fit=crop&q=80&w=800"
+    },
+    { 
+      title: "Hubballi Startup Meet", 
+      date: "May 22, 2026", 
+      location: "KLE Tech, Hubballi", 
+      type: "Networking",
+      img: "https://images.unsplash.com/photo-1511578319446-38bd2c74499f?auto=format&fit=crop&q=80&w=800"
+    }
+  ];
+
+  return (
+    <section id="events" className="py-32 bg-slate-50 dark:bg-slate-900/20">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+          <div className="max-w-2xl text-left">
+            <h2 className="text-5xl font-black dark:text-white mb-6">Upcoming <span className="text-secondary italic">Happenings</span></h2>
+            <p className="text-xl text-slate-500 dark:text-slate-400">Join our physical meetups and virtual sessions happening across the state.</p>
+          </div>
+          <button className="flex items-center gap-2 font-bold text-primary hover:text-primary-dark transition-all cursor-pointer border-none bg-transparent">
+            View All Events <ArrowRight size={20} />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {events.map((event, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white dark:bg-slate-800 rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all group"
+            >
+              <div className="h-56 relative overflow-hidden">
+                <img src={event.img} alt={event.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute top-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur px-4 py-1.5 rounded-full text-xs font-black tracking-widest uppercase">
+                  {event.type}
+                </div>
+              </div>
+              <div className="p-8">
+                <div className="flex items-center gap-2 text-primary font-bold text-sm mb-4">
+                  <Calendar size={16} /> {event.date}
+                </div>
+                <h3 className="text-2xl font-bold dark:text-white mb-4 group-hover:text-primary transition-colors">{event.title}</h3>
+                <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 mb-8">
+                  <MapPin size={16} /> {event.location}
+                </div>
+                <button className="w-full py-4 bg-slate-50 dark:bg-slate-700/50 hover:bg-primary hover:text-white dark:hover:bg-primary rounded-2xl font-bold transition-all flex items-center justify-center gap-2 cursor-pointer border-none">
+                  Get Tickets <ExternalLink size={18} />
+                </button>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Growth = ({ images, counters }) => (
   <section id="growth" className="py-32 relative">
     <div className="absolute inset-0 h-[600px]">
@@ -300,6 +379,63 @@ const Community = ({ images, handleAction }) => (
     </div>
   </section>
 );
+
+const Testimonials = () => {
+  const testimonials = [
+    {
+      name: "Arjun Rao",
+      role: "SDE-3 @ PhonePe",
+      text: "Namma Dev is the community I wish I had when I started my career in Bengaluru. The networking opportunities are unmatched.",
+      avatar: "https://i.pravatar.cc/150?u=arjun",
+      rating: 5
+    },
+    {
+      name: "Deepa Patil",
+      role: "Founder, MysuruAI",
+      text: "The support I got for my startup from fellow Kannada engineers was instrumental in our seed round. Truly a global-local culture.",
+      avatar: "https://i.pravatar.cc/150?u=deepa",
+      rating: 5
+    },
+    {
+      name: "Karthik Gowda",
+      role: "Open Source Contributor",
+      text: "From weekend hackathons to career advice, Namma Dev is more than a platform—it's a movement.",
+      avatar: "https://i.pravatar.cc/150?u=karthik",
+      rating: 5
+    }
+  ];
+
+  return (
+    <section id="testimonials" className="py-32 bg-white dark:bg-slate-950">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-20">
+          <h2 className="text-5xl font-black dark:text-white mb-6">Voices of the <span className="text-primary">Ecosystem</span></h2>
+          <p className="text-xl text-slate-500">Don't take our word for it—hear from the engineers building the future.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {testimonials.map((t, i) => (
+            <motion.div 
+              key={i}
+              whileHover={{ y: -10 }}
+              className="glass-card flex flex-col items-center text-center p-10"
+            >
+              <div className="flex gap-1 mb-6 text-yellow-400">
+                {[...Array(t.rating)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
+              </div>
+              <p className="text-lg text-slate-600 dark:text-slate-300 italic mb-8 leading-relaxed">"{t.text}"</p>
+              <div className="mt-auto">
+                <img src={t.avatar} alt={t.name} className="w-16 h-16 rounded-full mx-auto mb-4 border-2 border-primary" />
+                <h4 className="font-bold dark:text-white text-xl">{t.name}</h4>
+                <p className="text-sm text-primary font-bold uppercase tracking-wider">{t.role}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const Identity = ({ images, handleAction }) => (
   <section id="identity" className="relative py-48 overflow-hidden">
@@ -385,7 +521,7 @@ const Footer = ({ email, setEmail, subscribed, handleSubscribe, scrollToSection,
            <div>
             <h4 className="font-black text-lg dark:text-white mb-8">Platform</h4>
             <ul className="space-y-4 list-none p-0">
-              {['Home', 'Features', 'Community', 'Identity'].map(item => (
+              {['Home', 'Features', 'Events', 'Growth', 'Community', 'Testimonials'].map(item => (
                 <li key={item}>
                   <button 
                     onClick={() => scrollToSection(item.toLowerCase())}
@@ -461,7 +597,7 @@ const LandingPage = () => {
     };
 
     const observer = new IntersectionObserver(handleIntersect, observerOptions);
-    const sections = ['features', 'growth', 'community', 'identity'];
+    const sections = ['features', 'events', 'growth', 'community', 'testimonials', 'identity'];
     sections.forEach(id => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
@@ -530,7 +666,7 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white transition-colors duration-500 dark:bg-slate-950 font-sans selection:bg-primary/20 selection:text-primary">
+    <div className="min-h-screen bg-white transition-colors duration-500 dark:bg-slate-950 font-sans selection:bg-primary/20 selection:text-primary bg-mesh">
       <Navbar 
         isDarkMode={isDarkMode} 
         activeSection={activeSection} 
@@ -542,8 +678,10 @@ const LandingPage = () => {
       />
       <Hero images={images} handleAction={handleAction} scrollToSection={scrollToSection} />
       <Features images={images} />
+      <Events />
       <Growth images={images} counters={counters} />
       <Community images={images} handleAction={handleAction} />
+      <Testimonials />
       <Identity images={images} handleAction={handleAction} />
       <Footer 
         email={email} 
