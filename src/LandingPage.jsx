@@ -112,7 +112,7 @@ const Navbar = ({ isDarkMode, activeSection, toggleDarkMode, isMenuOpen, setIsMe
 );
 
 const Hero = ({ images, handleAction, scrollToSection }) => (
-  <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
     <div 
       className="absolute inset-0 z-0 scale-105"
       style={{ 
@@ -471,7 +471,7 @@ const Identity = ({ images, handleAction }) => (
   </section>
 );
 
-const Footer = ({ email, setEmail, subscribed, handleSubscribe, scrollToSection, handleAction }) => (
+const Footer = ({ email, setEmail, subscribed, handleSubscribe, scrollToSection, handleAction, showToast }) => (
   <footer className="bg-white dark:bg-slate-950 border-t dark:border-white/5 pt-32 pb-16">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col md:flex-row justify-between items-start gap-16 mb-24">
@@ -509,10 +509,21 @@ const Footer = ({ email, setEmail, subscribed, handleSubscribe, scrollToSection,
           </form>
 
           <div className="flex gap-4">
-            {[Twitter, Github, Linkedin].map((Icon, i) => (
-              <button key={i} onClick={() => handleAction('Social Link')} className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-white/10 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:border-primary hover:text-primary transition-all hover:shadow-lg cursor-pointer">
+            {[
+              { Icon: Twitter, url: 'https://twitter.com/nammadev', label: 'Twitter' },
+              { Icon: Github, url: 'https://github.com/nammadev', label: 'GitHub' },
+              { Icon: Linkedin, url: 'https://linkedin.com/company/nammadev', label: 'LinkedIn' }
+            ].map(({ Icon, url, label }) => (
+              <a
+                key={label}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-white/10 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:border-primary hover:text-primary transition-all hover:shadow-lg cursor-pointer"
+              >
                 <Icon size={24} />
-              </button>
+              </a>
             ))}
           </div>
         </div>
@@ -539,7 +550,7 @@ const Footer = ({ email, setEmail, subscribed, handleSubscribe, scrollToSection,
               {['Bengaluru', 'Mysuru', 'Hubballi', 'Mangaluru'].map(item => (
                 <li key={item}>
                   <button 
-                    onClick={() => handleAction(`City: ${item}`)}
+                    onClick={() => scrollToSection('community')}
                     className="text-slate-500 dark:text-slate-400 hover:text-primary transition-colors font-bold cursor-pointer border-none bg-transparent"
                   >
                     {item}
@@ -556,8 +567,8 @@ const Footer = ({ email, setEmail, subscribed, handleSubscribe, scrollToSection,
           &copy; {new Date().getFullYear()} Namma Dev. <span className="text-slate-300 dark:text-slate-800 mx-4">|</span> Made by Engineers in BLR 🚀
         </p>
         <div className="flex gap-8 text-sm font-bold text-slate-500">
-          <button onClick={() => handleAction('Privacy')} className="hover:text-primary transition-colors cursor-pointer border-none bg-transparent">Privacy</button>
-          <button onClick={() => handleAction('Terms')} className="hover:text-primary transition-colors cursor-pointer border-none bg-transparent">Terms</button>
+          <button onClick={() => showToast('Privacy policy coming soon!')} className="hover:text-primary transition-colors cursor-pointer border-none bg-transparent">Privacy</button>
+          <button onClick={() => showToast('Terms of service coming soon!')} className="hover:text-primary transition-colors cursor-pointer border-none bg-transparent">Terms</button>
         </div>
       </div>
     </div>
@@ -632,7 +643,19 @@ const LandingPage = () => {
 
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
+  const [toast, setToast] = useState(null);
+
+  const showToast = (message) => {
+    setToast(message);
+    setTimeout(() => setToast(null), 3000);
+  };
+
   const scrollToSection = (id) => {
+    if (id === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setIsMenuOpen(false);
+      return;
+    }
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -667,6 +690,19 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-white transition-colors duration-500 dark:bg-slate-950 font-sans selection:bg-primary/20 selection:text-primary bg-mesh">
+      {/* Toast Notification */}
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 50, scale: 0.9 }}
+            className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-4 rounded-2xl font-bold shadow-2xl border border-white/10 backdrop-blur-xl"
+          >
+            {toast}
+          </motion.div>
+        )}
+      </AnimatePresence>
       <Navbar 
         isDarkMode={isDarkMode} 
         activeSection={activeSection} 
@@ -690,6 +726,7 @@ const LandingPage = () => {
         handleSubscribe={handleSubscribe} 
         scrollToSection={scrollToSection} 
         handleAction={handleAction}
+        showToast={showToast}
       />
     </div>
   );
